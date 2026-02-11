@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Youth - Screening Kesehatan Mental Remaja</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">ScreenYouth</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#screening">Mulai Screening</a></li>
+                    <li><a href="resources.html">Sumber Daya</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="close-btn" id="close-mobile-nav">&times;</div>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang Kami</a></li>
+            <li><a href="#screening">Mulai Screening</a></li>
+            <li><a href="resources.html">Sumber Daya</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </div>
+
+    <section class="hero-section animated-section" id="home">
+        <div class="container hero-content">
+            <div class="text-content">
+                <h1>ScreenYouth: Cek Kesehatan Mentalmu Sekarang!</h1>
+                <p>Platform interaktif untuk membantu remaja memahami dan menjaga kesehatan mental mereka. Mulai perjalananmu menuju pikiran yang lebih jernih dan hati yang lebih bahagia.</p>
+                <button class="cta-button" onclick="scrollToSection('screening')">Mulai Screening Sekarang <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="image-content">
+                <img src="https://raw.githubusercontent.com/ridhonugroho30/ScreenYouth/main/orgil.JPG" alt="logo dari github">
+            </div>
+        </div>
+        <div class="scroll-down-indicator">
+            <span>Scroll ke bawah</span>
+            <div class="arrow-down"></div>
+        </div>
+    </section>
+
+    <section class="about-section animated-section" id="about">
+        <div class="container">
+            <h2>Tentang ScreenYouth</h2>
+            <p class="section-subtitle">Kami percaya setiap remaja berhak mendapatkan dukungan untuk kesehatan mentalnya.</p>
+            <div class="about-grid">
+                <div class="about-item reveal-on-scroll">
+                    <i class="fas fa-brain"></i>
+                    <h3>Pahami Dirimu</h3>
+                    <p>Alat skrining yang dirancang untuk membantu kamu mengenali perasaan dan pikiranmu.</p>
+                </div>
+                <div class="about-item reveal-on-scroll">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Dukungan Awal</h3>
+                    <p>Dapatkan saran dan sumber daya awal berdasarkan hasil skriningmu.</p>
+                </div>
+                <div class="about-item reveal-on-scroll">
+                    <i class="fas fa-users"></i>
+                    <h3>Komunitas Positif</h3>
+                    <p>Temukan artikel dan cerita inspiratif dari remaja lain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="screening-section animated-section" id="screening">
+        <div class="container">
+            <h2>Skrining Awal Kecemasan (HAM-A Sederhana)</h2>
+            <p class="section-subtitle">Jawab beberapa pertanyaan tentang bagaimana perasaanmu dalam 2 minggu terakhir.</p>
+            <div class="disclaimer-box">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p><strong>Penting:</strong> Skrining ini adalah alat bantu awal dan <strong>bukan pengganti diagnosis profesional</strong>. Jika Anda khawatir dengan hasilnya, segera konsultasi dengan psikolog atau psikiater.</p>
+            </div>
+
+            <div class="screening-steps">
+                <div class="step-indicator" id="step-1-indicator" data-step="1" onclick="showQuestionSet(1)">
+                    <span class="step-number">1</span>
+                    <span class="step-title">Perasaan Umum</span>
+                </div>
+                <div class="step-indicator" id="step-2-indicator" data-step="2" onclick="showQuestionSet(2)">
+                    <span class="step-number">2</span>
+                    <span class="step-title">Fisik & Tidur</span>
+                </div>
+                <div class="step-indicator" id="step-3-indicator" data-step="3" onclick="showQuestionSet(3)">
+                    <span class="step-number">3</span>
+                    <span class="step-title">Pencernaan & Lainnya</span>
+                </div>
+                <div class="step-indicator" id="step-4-indicator" data-step="4" onclick="showQuestionSet(4)">
+                    <span class="step-number">4</span>
+                    <span class="step-title">Fokus & Ketakutan</span>
+                </div>
+                <div class="step-indicator" id="step-5-indicator" data-step="5" onclick="showQuestionSet(5)">
+                    <span class="step-number">5</span>
+                    <span class="step-title">Hasil Skrining</span>
+                </div>
+            </div>
+
+            <div class="screening-quiz">
+                <div class="question-set active" id="qs-1">
+                    <h3>Dalam 2 minggu terakhir, seberapa sering kamu merasakan hal-hal berikut?</h3>
+                    <h4>Kecemasan (Khawatir, antisipasi buruk, iritabilitas)</h4>
+                    <label><input type="radio" name="q1a" value="0"> Tidak ada atau sangat ringan</label>
+                    <label><input type="radio" name="q1a" value="1"> Ringan (sedikit kekhawatiran)</label>
+                    <label><input type="radio" name="q1a" value="2"> Sedang (khawatir cukup sering)</label>
+                    <label><input type="radio" name="q1a" value="3"> Berat (sangat khawatir, sering iritabel)</label>
+                    <label><input type="radio" name="q1a" value="4"> Sangat berat (hampir terus-menerus khawatir, sangat iritabel)</label>
+
+                    <h4>Ketegangan (Perasaan tegang, gelisah, gemetar, tidak bisa rileks)</h4>
+                    <label><input type="radio" name="q1b" value="0"> Tidak ada atau sangat ringan</label>
+                    <label><input type="radio" name="q1b" value="1"> Ringan (sedikit tegang, gelisah sesekali)</label>
+                    <label><input type="radio" name="q1b" value="2"> Sedang (cukup tegang, sulit rileks)</label>
+                    <label><input type="radio" name="q1b" value="3"> Berat (sangat tegang, gemetar, gelisah sepanjang waktu)</label>
+                    <label><input type="radio" name="q1b" value="4"> Sangat berat (tidak bisa rileks sama sekali, gemetar hebat)</label>
+                    <button class="next-prev-btn" onclick="nextQuestionSet()">Berikutnya <i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <div class="question-set" id="qs-2">
+                    <h3>Bagaimana kondisi fisik dan pola tidurmu dalam 2 minggu terakhir?</h3>
+                    <h4>Insomnia (Sulit tidur, terbangun malam hari, tidur tidak nyenyak)</h4>
+                    <label><input type="radio" name="q2a" value="0"> Tidak ada kesulitan tidur</label>
+                    <label><input type="radio" name="q2a" value="1"> Ringan (sedikit sulit tidur)</label>
+                    <label><input type="radio" name="q2a" value="2"> Sedang (sering sulit tidur, kadang terbangun)</label>
+                    <label><input type="radio" name="q2a" value="3"> Berat (sangat sulit tidur, sering terbangun)</label>
+                    <label><input type="radio" name="q2a" value="4"> Sangat berat (hampir tidak tidur sama sekali)</label>
+
+                    <h4>Gejala Fisik (Nyeri otot/kaku, gemetar, lemas, pusing)</h4>
+                    <label><input type="radio" name="q2b" value="0"> Tidak ada</label>
+                    <label><input type="radio" name="q2b" value="1"> Ringan (sesekali merasakan)</label>
+                    <label><input type="radio" name="q2b" value="2"> Sedang (cukup sering merasakan, mengganggu sedikit)</label>
+                    <label><input type="radio" name="q2b" value="3"> Berat (sering sekali, cukup mengganggu)</label>
+                    <label><input type="radio" name="q2b" value="4"> Sangat berat (hampir terus-menerus, sangat mengganggu)</label>
+                    <div class="nav-buttons">
+                        <button class="next-prev-btn prev" onclick="prevQuestionSet()"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
+                        <button class="next-prev-btn" onclick="nextQuestionSet()">Berikutnya <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="question-set" id="qs-3">
+                    <h3>Apakah kamu mengalami gejala fisik lain ini dalam 2 minggu terakhir?</h3>
+                    <h4>Jantung & Napas (Jantung berdebar, sesak napas, nyeri dada)</h4>
+                    <label><input type="radio" name="q3a" value="0"> Tidak ada</label>
+                    <label><input type="radio" name="q3a" value="1"> Ringan (sesekali merasakan)</label>
+                    <label><input type="radio" name="q3a" value="2"> Sedang (cukup sering merasakan, mengganggu sedikit)</label>
+                    <label><input type="radio" name="q3a" value="3"> Berat (sering sekali, cukup mengganggu)</label>
+                    <label><input type="radio" name="q3a" value="4"> Sangat berat (hampir terus-menerus, sangat mengganggu)</label>
+
+                    <h4>Pencernaan & Lainnya (Mual, diare, konstipasi, sering kencing, mulut kering, berkeringat)</h4>
+                    <label><input type="radio" name="q3b" value="0"> Tidak ada</label>
+                    <label><input type="radio" name="q3b" value="1"> Ringan (sesekali merasakan)</label>
+                    <label><input type="radio" name="q3b" value="2"> Sedang (cukup sering merasakan, mengganggu sedikit)</label>
+                    <label><input type="radio" name="q3b" value="3"> Berat (sering sekali, cukup mengganggu)</label>
+                    <label><input type="radio" name="q3b" value="4"> Sangat berat (hampir terus-menerus, sangat mengganggu)</label>
+                    <div class="nav-buttons">
+                        <button class="next-prev-btn prev" onclick="prevQuestionSet()"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
+                        <button class="next-prev-btn" onclick="nextQuestionSet()">Berikutnya <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="question-set" id="qs-4">
+                    <h3>Bagaimana dengan fokus, perasaan, dan ketakutanmu dalam 2 minggu terakhir?</h3>
+                    <h4>Fokus & Daya Ingat (Sulit konsentrasi, daya ingat buruk)</h4>
+                    <label><input type="radio" name="q4a" value="0"> Tidak ada kesulitan</label>
+                    <label><input type="radio" name="q4a" value="1"> Ringan (sedikit sulit fokus/ingat)</label>
+                    <label><input type="radio" name="q4a" value="2"> Sedang (sering sulit fokus/ingat, mengganggu belajar)</label>
+                    <label><input type="radio" name="q4a" value="3"> Berat (sangat sulit fokus/ingat, mengganggu aktivitas)</label>
+                    <label><input type="radio" name="q4a" value="4"> Sangat berat (hampir tidak bisa fokus sama sekali)</label>
+
+                    <h4>Perasaan Depresi (Kehilangan minat, kurang gembira, sedih)</h4>
+                    <label><input type="radio" name="q4b" value="0"> Tidak ada</label>
+                    <label><input type="radio" name="q4b" value="1"> Ringan (sedikit kehilangan minat/mood kurang baik)</label>
+                    <label><input type="radio" name="q4b" value="2"> Sedang (cukup sering kehilangan minat, mood sedih)</label>
+                    <label><input type="radio" name="q4b" value="3"> Berat (sering merasa sedih, kehilangan banyak minat)</label>
+                    <label><input type="radio" name="q4b" value="4"> Sangat berat (putus asa, tidak tertarik pada apa pun)</label>
+
+                    <h4>Ketakutan (Takut pada hal tertentu: gelap, orang asing, keramaian, binatang, dll.)</h4>
+                    <label><input type="radio" name="q4c" value="0"> Tidak ada ketakutan yang tidak wajar</label>
+                    <label><input type="radio" name="q4c" value="1"> Ringan (ketakutan sesekali pada hal tertentu)</label>
+                    <label><input type="radio" name="q4c" value="2"> Sedang (cukup sering takut, menghindari situasi tertentu)</label>
+                    <label><input type="radio" name="q4c" value="3"> Berat (sangat takut, sangat membatasi aktivitas)</label>
+                    <label><input type="radio" name="q4c" value="4"> Sangat berat (panik hebat, phobia parah)</label>
+                    <div class="nav-buttons">
+                        <button class="next-prev-btn prev" onclick="prevQuestionSet()"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
+                        <button class="next-prev-btn" onclick="nextQuestionSet()">Lihat Hasil <i class="fas fa-clipboard-check"></i></button>
+                    </div>
+                </div>
+
+                <div class="question-set" id="qs-5">
+                    <h3>Hasil Skrining Awal Kecemasan Anda</h3>
+                    <div class="screening-result">
+                        <p id="result-text"></p>
+                        <div class="intervention-suggestions">
+                            <h4>Langkah Selanjutnya & Edukasi Rekomendasi:</h4>
+                            <ul id="suggested-interventions">
+                                </ul>
+                        </div>
+                        <div class="result-action">
+                            <a href="resources.html" class="cta-button primary">Jelajahi Sumber Daya Lainnya</a>
+                            <button class="cta-button secondary" onclick="restartScreening()">Ulangi Skrining</button>
+                        </div>
+                    </div>
+                    <div class="nav-buttons">
+                        <button class="next-prev-btn prev" onclick="prevQuestionSet()"><i class="fas fa-chevron-left"></i> Sebelumnya</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section animated-section" id="contact">
+        <div class="container">
+            <h2>Kontak Kami</h2>
+            <p class="section-subtitle">Punya pertanyaan atau ingin tahu lebih banyak?</p>
+            <form class="contact-form">
+                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea placeholder="Pesan Anda" rows="6" required></textarea>
+                <button type="submit" class="cta-button">Kirim Pesan</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Jiwa Muda. Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll untuk navigasi internal di index.html
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (document.querySelector(targetId)) {
+                    document.querySelector(targetId).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    document.getElementById('mobile-nav-overlay').classList.remove('open');
+                } else {
+                    window.location.href = targetId;
+                }
+            });
+        });
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mobile Nav Toggle
+        document.getElementById('hamburger-menu').addEventListener('click', function() {
+            document.getElementById('mobile-nav-overlay').classList.add('open');
+        });
+
+        document.getElementById('close-mobile-nav').addEventListener('click', function() {
+            document.getElementById('mobile-nav-overlay').classList.remove('open');
+        });
+
+        // Screening Quiz Logic
+        let currentQuestionSet = 1;
+        const totalQuestionSets = 5;
+
+        function showQuestionSet(setNumber) {
+            document.querySelectorAll('.question-set').forEach(qs => {
+                qs.classList.remove('active', 'transition-left', 'transition-right');
+            });
+            document.getElementById(`qs-${setNumber}`).classList.add('active');
+
+            document.querySelectorAll('.step-indicator').forEach(indicator => {
+                indicator.classList.remove('active-step', 'completed-step');
+            });
+
+            for (let i = 1; i <= setNumber; i++) {
+                document.getElementById(`step-${i}-indicator`).classList.add('completed-step');
+            }
+            document.getElementById(`step-${setNumber}-indicator`).classList.add('active-step');
+
+            currentQuestionSet = setNumber;
+
+            if (setNumber === totalQuestionSets) {
+                calculateResult();
+            }
+        }
+
+        function nextQuestionSet() {
+            const currentQsElement = document.getElementById(`qs-${currentQuestionSet}`);
+            const questionNamesInSet = [];
+            // Dynamically get all radio button names in the current set
+            currentQsElement.querySelectorAll('input[type="radio"]').forEach(input => {
+                if (!questionNamesInSet.includes(input.name)) {
+                    questionNamesInSet.push(input.name);
+                }
+            });
+
+            // Validate if all questions in the current set have an answer
+            let allAnswered = true;
+            if (currentQuestionSet < totalQuestionSets -1) { // Don't validate for the result page
+                for (const qName of questionNamesInSet) {
+                    if (!currentQsElement.querySelector(`input[name="${qName}"]:checked`)) {
+                        allAnswered = false;
+                        break;
+                    }
+                }
+                if (!allAnswered) {
+                    alert("Mohon jawab semua pertanyaan di bagian ini sebelum melanjutkan.");
+                    return;
+                }
+            }
+
+            if (currentQuestionSet < totalQuestionSets) {
+                currentQsElement.classList.add('transition-left');
+                setTimeout(() => {
+                    currentQsElement.classList.remove('active', 'transition-left');
+                    currentQuestionSet++;
+                    document.getElementById(`qs-${currentQuestionSet}`).classList.add('active', 'transition-right-enter');
+                    setTimeout(() => {
+                        document.getElementById(`qs-${currentQuestionSet}`).classList.remove('transition-right-enter');
+                    }, 300);
+                    updateStepIndicators();
+                }, 300);
+            }
+        }
+
+        function prevQuestionSet() {
+            if (currentQuestionSet > 1) {
+                const currentQsElement = document.getElementById(`qs-${currentQuestionSet}`);
+                currentQsElement.classList.add('transition-right');
+                setTimeout(() => {
+                    currentQsElement.classList.remove('active', 'transition-right');
+                    currentQuestionSet--;
+                    document.getElementById(`qs-${currentQuestionSet}`).classList.add('active', 'transition-left-enter');
+                    setTimeout(() => {
+                        document.getElementById(`qs-${currentQuestionSet}`).classList.remove('transition-left-enter');
+                    }, 300);
+                    updateStepIndicators();
+                }, 300);
+            }
+        }
+
+        function updateStepIndicators() {
+             document.querySelectorAll('.step-indicator').forEach(indicator => {
+                indicator.classList.remove('active-step', 'completed-step');
+            });
+
+            for (let i = 1; i <= currentQuestionSet; i++) {
+                document.getElementById(`step-${i}-indicator`).classList.add('completed-step');
+            }
+            document.getElementById(`step-${currentQuestionSet}-indicator`).classList.add('active-step');
+
+            if (currentQuestionSet === totalQuestionSets) {
+                calculateResult();
+            }
+        }
+
+        // --- Fungsi calculateResult() yang disesuaikan untuk HAM-A ---
+        function calculateResult() {
+            let totalScore = 0;
+            // Collect scores from all relevant radio button groups
+            const questionNames = ['q1a', 'q1b', 'q2a', 'q2b', 'q3a', 'q3b', 'q4a', 'q4b', 'q4c']; // All questions now
+            questionNames.forEach(name => {
+                const selectedOption = document.querySelector(`input[name="${name}"]:checked`);
+                if (selectedOption) {
+                    totalScore += parseInt(selectedOption.value);
+                }
+            });
+
+            let resultText = "";
+            let interventions = [];
+
+            // Interpretasi skor HAM-A Sederhana (skala 0-4 per item, 9 item = max 36)
+            // Ini adalah interpretasi sederhana untuk tujuan skrining, bukan klinis
+            if (totalScore <= 7) {
+                resultText = `Skor Anda: ${totalScore}. Tingkat kecemasan Anda saat ini terlihat normal atau sangat ringan. Pertahankan gaya hidup sehat dan tetap pantau perasaan Anda.`;
+                interventions = [
+                    { type: 'edukasi', text: 'Baca artikel tentang "Menjaga Kesehatan Mental di Usia Remaja".' },
+                    { type: 'pola-hidup', text: 'Lanjutkan gaya hidup sehatmu: tidur cukup, gizi seimbang, dan olahraga teratur.' },
+                    { type: 'relaksasi', text: 'Coba teknik relaksasi sederhana untuk mengelola stres sehari-hari.' },
+                ];
+            } else if (totalScore <= 14) {
+                resultText = `Skor Anda: ${totalScore}. Anda mungkin mengalami kecemasan ringan hingga sedang. Gejala ini bisa membaik dengan pengelolaan diri dan dukungan awal.`;
+                interventions = [
+                    { type: 'edukasi', text: 'Pahami lebih dalam tentang "Tanda-tanda Stres pada Remaja" dan cara mengelolanya.' },
+                    { type: 'dukungan-sosial', text: 'Pertimbangkan untuk lebih sering berbicara dengan teman atau keluarga yang kamu percaya.' },
+                    { type: 'relaksasi', text: 'Latih teknik pernapasan atau meditasi untuk menenangkan pikiran.' },
+                    { type: 'pola-hidup', text: 'Pastikan kamu cukup istirahat dan memiliki aktivitas fisik yang teratur.' }
+                ];
+            } else if (totalScore <= 23) {
+                resultText = `Skor Anda: ${totalScore}. Ada indikasi kecemasan sedang hingga berat. Kami sangat menyarankan untuk mencari bantuan profesional dari psikolog atau konselor untuk evaluasi lebih lanjut.`;
+                interventions = [
+                    { type: 'konseling', text: 'Sangat disarankan untuk mencari bantuan profesional dari konselor atau psikolog.' },
+                    { type: 'dukungan-sosial', text: 'Berbagi perasaanmu dengan orang tua, guru, atau wali yang kamu percaya.' },
+                    { type: 'edukasi', text: 'Pelajari tentang "Mengatasi Kecemasan dan Depresi" untuk pemahaman yang lebih baik.' },
+                    { type: 'relaksasi', text: 'Lakukan latihan relaksasi secara rutin untuk menenangkan pikiran.' }
+                ];
+            } else { // totalScore > 23
+                resultText = `Skor Anda: ${totalScore}. Ada indikasi kecemasan berat atau sangat berat. Sangat penting untuk segera mencari bantuan profesional dari psikolog atau psikiater. Anda tidak sendirian dalam menghadapi ini.`;
+                interventions = [
+                    { type: 'konseling', text: 'Prioritaskan untuk segera berkonsultasi dengan psikolog atau psikiater. Ini adalah langkah paling penting.' },
+                    { type: 'dukungan-sosial', text: 'Cari dukungan dari orang terdekat. Jangan ragu untuk meminta bantuan.' },
+                    { type: 'edukasi', text: 'Pahami "Pentingnya Bantuan Profesional untuk Kesehatan Mental" dan stigma yang keliru.' }
+                ];
+            }
+
+            document.getElementById('result-text').textContent = resultText;
+
+            const suggestedInterventionsList = document.getElementById('suggested-interventions');
+            suggestedInterventionsList.innerHTML = '';
+            interventions.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.text;
+                li.onclick = () => {
+                    // Redirect to resources.html with a hash for the specific resource
+                    window.location.href = `resources.html#${item.type}`;
+                };
+                suggestedInterventionsList.appendChild(li);
+            });
+        }
+
+        function restartScreening() {
+            document.querySelectorAll('input[type="radio"]:checked').forEach(radio => {
+                radio.checked = false;
+            });
+            showQuestionSet(1);
+            document.getElementById('suggested-interventions').innerHTML = '';
+        }
+
+        // Initial call to set up the first question set
+        showQuestionSet(1);
+
+        // Scroll Reveal Animation (Sederhana)
+        const animatedSections = document.querySelectorAll('.animated-section');
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const sectionObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // observer.unobserve(entry.target);
+                } else {
+                    // entry.target.classList.remove('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animatedSections.forEach(section => {
+            sectionObserver.observe(section);
+        });
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+    </script>
+</body>
+</html>
